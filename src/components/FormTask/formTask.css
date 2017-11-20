@@ -1,0 +1,22 @@
+.formTask {
+
+}
+.formTask__field {
+    padding: 15px;
+    font-size: 20px;
+    color: #171717
+}
+.formTask__button {
+
+}
+.selectColor {
+    padding: 0
+}
+.selectColor__button {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    margin: 5px;
+    border: 1px solid #171717;
+    cursor: pointer
+}
