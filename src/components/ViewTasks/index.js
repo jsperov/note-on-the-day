@@ -1,7 +1,9 @@
 import React from 'react'
 
-export default class ViewTasks extends React.Components {
+export default class ViewTasks extends React.Component {
     render() {
-        return <div></div>
+        return (
+            <div></div>
+        )
     }
 }
