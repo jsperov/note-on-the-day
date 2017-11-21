@@ -6,7 +6,30 @@ import './app.css'
 export default class App extends React.Component {
     constructor() {
         super()
-        this.state = { color: null, isActive: null }
+        this.state = { 
+            color: null, 
+            isActive: null,
+            tasks: []
+         }
+    }
+
+    addTask = event => {
+        event.preventDefault()
+
+        let taskField = event.target.parentNode.querySelector('.formTask__field')
+        
+        if(!taskField.value) return
+
+        this.state.tasks.push({
+            description: taskField.value,
+            backgroundTask: this.state.color
+        })
+
+        this.setState({
+            tasks: this.state.tasks,
+        })
+        
+        taskField.value = ''
     }
 
     createNewTask = (color) => {
@@ -16,8 +39,9 @@ export default class App extends React.Component {
     render() {
         return (
             <div id="app" className="container">
-                <FormTask background={this.state.color} createNewTask={this.createNewTask} isActive={this.state.isActive}/>
-                <ViewTasks />
+                <h1>Tasks for the day</h1>
+                <FormTask background={ this.state.color } createNewTask={ this.createNewTask } isActive={ this.state.isActive } addTask={ this.addTask }/>
+                <ViewTasks tasks={ this.state.tasks } />
             </div>
         )
     }

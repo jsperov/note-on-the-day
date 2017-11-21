@@ -4,6 +4,10 @@ body {
   font-family: sans-serif
 }
 
+h1 {
+  text-align: center
+}
+
 .container {
   width: 768px;
   padding: 50px 27px;
@@ -14,5 +18,6 @@ textarea {
   display: block;
   width: 100%;
   min-height: 320px;
-  margin: 25px 0
-}
+  margin: 25px 0;
+  box-sizing: border-box;;
+} 

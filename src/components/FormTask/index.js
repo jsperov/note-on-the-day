@@ -6,9 +6,9 @@ export default class FormTask extends React.Component {
     render() {
         return (
             <form className="formTask">
-                <textarea style={{ background: this.props.background }} className="formTask__field" placeholder="enter your task here..."></textarea>
+                <textarea className="formTask__field" style={{ background: this.props.background }} placeholder="enter your task here..."></textarea>
                 <SelectColor createNewTask={ this.props.createNewTask } isActive={ this.props.isActive }/>
-                <button className="formTask__button">add task</button>
+                <button className="formTask__button" onClick={this.props.addTask}>add task</button>
             </form>
         )
     }
