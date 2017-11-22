@@ -1,4 +1,5 @@
 import React from 'react'
+import { LocalStorage } from "./db"
 import FormTask from './components/FormTask/'
 import ViewTasks from './components/ViewTasks/'
 import './app.css'
@@ -9,7 +10,7 @@ export default class App extends React.Component {
         this.state = { 
             color: null, 
             isActive: null,
-            tasks: []
+            tasks: (null) ? [] : new LocalStorage().getStorage('tasks')
          }
     }
 
@@ -25,6 +26,8 @@ export default class App extends React.Component {
             backgroundTask: this.state.color
         })
 
+        localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
+
         this.setState({
             tasks: this.state.tasks,
         })
@@ -37,6 +40,7 @@ export default class App extends React.Component {
     }
 
     render() {
+        console.log(new LocalStorage().getStorage('tasks'))
         return (
             <div id="app" className="container">
                 <h1>Tasks for the day</h1>
