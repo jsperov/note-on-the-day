@@ -1,6 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import {} from './formTask.css'
 import SelectColor from './SelectColor'
+
 
 export default class FormTask extends React.Component {
     render() {
@@ -12,4 +14,9 @@ export default class FormTask extends React.Component {
             </form>
         )
     }
+}
+
+FormTask.propTypes = {
+    createNewTask: PropTypes.func,
+    isActive: PropTypes.oneOfType([PropTypes.object, PropTypes.string])
 }
