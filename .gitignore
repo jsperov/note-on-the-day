@@ -3,6 +3,9 @@
 # dependencies
 /node_modules
 
+# config files
+/src/backend/config.json
+
 # testing
 /coverage
 

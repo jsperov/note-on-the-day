@@ -7,8 +7,8 @@ import './app.css'
 
 const App = () => (
     <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/login" exact component={Login} /> 
+        <Route path="/" exact component={Home} />
+        <Route path="/login" component={Login} />
     </Switch>
 )
 
