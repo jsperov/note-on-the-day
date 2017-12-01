@@ -1,0 +1,23 @@
+#registration {
+    padding: 75px 50px
+}
+
+.registration-block {
+    margin: 0 auto;
+    padding: 32px;
+    width: 25%;
+    border-top: 7px solid rgb(107, 210, 230);
+    background: rgb(170, 79, 110)
+}
+
+.registration-block__element-wrap {
+    padding: 15px 0
+}
+
+.registration-block__element-wrap div {
+    width: 100%
+} 
+
+.registration-block__element-wrap label {
+    color: #fff !important
+}

@@ -1,50 +1,36 @@
 import React from 'react'
-import { BrowserRouter, Route } from 'react-router-dom'
-import { LocalStorage, CustomPromise } from "../../db"
-import FormTask from '../FormTask/'
-import ViewTasks from '../ViewTasks/'
+import { Link } from 'react-router-dom'
+import Logo from './task.svg'
+import './home.css'
+import { Button } from 'semantic-ui-react'
 
 export default class Home extends React.Component {
-    constructor() {
-        super()
-        this.state = { 
-            color: null, 
-            isActive: null,
-            tasks: null ? [] : new LocalStorage().getStorage('tasks')
-         }
-    }
-
-    addTask = event => {
-        event.preventDefault()
-
-        let taskField = event.target.parentNode.querySelector('.formTask__field')
-        
-        if(!taskField.value) return
-
-        this.state.tasks.push({
-            description: taskField.value,
-            backgroundTask: this.state.color
-        })
-
-        localStorage.setItem("tasks", JSON.stringify(this.state.tasks));
-
-        this.setState({
-            tasks: this.state.tasks,
-        })
-        
-        taskField.value = ''
-    }
-
-    createNewTask = (color) => {
-        this.setState({ color: color, isActive: color }, () => console.log(this.state))
-    } 
-
     render() {
         return (
-            <div id="home" className="container">
-                <FormTask background={ this.state.color } createNewTask={ this.createNewTask } isActive={ this.state.isActive } addTask={ this.addTask }/>
-                <ViewTasks tasks={ this.state.tasks } />
+            <div id="introduction">
+                <header>
+                    <div className="h-left-zone">
+                        <div className="logo">
+                            <img src={Logo} />
+                        </div>
+                    </div>
+                    <div className="h-right-zone">
+                        <Button>
+                            <Link to="/login">Login</Link>
+                        </Button>
+                        <Button>
+                            <Link to="/registration">Registration</Link>
+                        </Button>
+                    </div>
+                </header>
+                <main>
+                    <div className="product-desc">
+                        <h2 className="product-desc__title">Tasker - это бесплатный, гибкий и наглядный способ организовать что угодно с кем угодно.</h2>
+                        <div className="product-desc__description">Выбросьте длинные цепочки электронных писем, устаревшие таблицы, не такие уж и клейкие стикеры и неуклюжие программы для управления проектами. Trello помогает увидеть все детали проекта с первого взгляда.</div>
+                        <div className="product-desc__description">Это доска Trello. Это перечень списков, заполненных карточками, используемыми вашей командой или непосредственно вами.</div>
+                    </div>
+                </main>
             </div>
         )
     }
-}
+} 

@@ -1,0 +1,41 @@
+#introduction {
+    position: relative;
+    background: rgb(228, 241, 254)
+}
+
+header {
+    padding: 15px 50px;
+    font-size: 0
+}
+
+.h-left-zone, .h-right-zone {
+    display: inline-block;
+    width: 50%
+}
+
+.h-right-zone {
+    text-align: right;
+}
+
+.logo > img {
+    width: 35px
+}
+
+main {
+    background: #fff
+}
+
+.product-desc {
+    width: 35%;
+    margin: 0 auto;
+    padding: 75px 12px
+}
+
+.product-desc__title {
+    text-align: center
+}
+
+.product-desc__description {
+    font-size: 16px;
+    padding: 20px 0
+}
