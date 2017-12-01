@@ -1,8 +1,8 @@
-#registration {
+#form-box {
     padding: 75px 50px
 }
 
-.registration-block {
+.field-block {
     margin: 0 auto;
     padding: 32px;
     width: 25%;
@@ -10,14 +10,14 @@
     background: rgb(170, 79, 110)
 }
 
-.registration-block__element-wrap {
+.field__element-wrap {
     padding: 15px 0
 }
 
-.registration-block__element-wrap div {
+.field__element-wrap div {
     width: 100%
 } 
 
-.registration-block__element-wrap label {
+.field__element-wrap label {
     color: #fff !important
 }

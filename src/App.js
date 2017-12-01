@@ -3,7 +3,7 @@ import { Switch , Route } from 'react-router-dom'
 import { LocalStorage } from "./db"
 import Home from './components/Home'
 import Task from './components/Task'
-import { Login } from './components/Login'
+import Login from './components/Login'
 import Registration from './components/Registration' 
 import './app.css'
 
