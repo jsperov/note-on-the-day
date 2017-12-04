@@ -1,5 +1,5 @@
 import React from 'react'
-import { LocalStorage, CustomPromise } from "../../db"
+import { LocalStorage } from "../../db"
 import FormTask from '../FormTask/'
 import ViewTasks from '../ViewTasks/'
 

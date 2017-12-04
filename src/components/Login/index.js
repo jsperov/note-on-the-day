@@ -1,11 +1,11 @@
 import React from 'react'
 import { Button, Checkbox, Input } from 'semantic-ui-react'
-import 'semantic-ui-css/semantic.min.css';
+import 'semantic-ui-css/semantic.min.css'
 
 export default class Login extends React.Component {
     render() {
         return (
-            <div id="registration">
+            <div id="form-box">
                 <h1>Вход</h1>
                 <div className="field-block">
                     <form id="field-block__form">

@@ -1,6 +1,7 @@
 import React from 'react'
 import { Button, Checkbox, Icon, Input } from 'semantic-ui-react'
 import './registration.css'
+import { Field } from '../Form'
 
 export default class Registration extends React.Component {
     render() {
@@ -10,7 +11,9 @@ export default class Registration extends React.Component {
                 <div className="field-block">
                     <form id="field__form">
                         <div className="field__element-wrap">
-                            <Input placeholder='Введите имя' />
+                            <Field>
+                                <Input placeholder='Введите имя' />
+                            </Field>
                         </div>
                         <div className="field__element-wrap">
                             <Input iconPosition='left' placeholder='Email'>
