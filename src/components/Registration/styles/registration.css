@@ -1,0 +1,18 @@
+#form-box {
+  padding: 75px 50px; }
+
+.field-block {
+  margin: 0 auto;
+  padding: 32px;
+  width: 25%;
+  border-top: 7px solid #0a2046;
+  background: #1f313c; }
+
+.field__element-wrap {
+  padding: 15px 0; }
+
+.field__element-wrap div {
+  width: 100%; }
+
+.field__element-wrap label {
+  color: #fff !important; }

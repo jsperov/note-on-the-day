@@ -1,23 +1,26 @@
+@import 'src/sass/color.scss';
+
 #form-box {
     padding: 75px 50px
 }
-
+  
 .field-block {
     margin: 0 auto;
     padding: 32px;
     width: 25%;
-    border-top: 7px solid rgb(107, 210, 230);
-    background: rgb(170, 79, 110)
+    border-top: 7px solid #0a2046;
+    background: $darkBlue
 }
 
 .field__element-wrap {
-    padding: 15px 0
+    padding: 15px 0 
 }
 
 .field__element-wrap div {
     width: 100%
-} 
+}
 
 .field__element-wrap label {
-    color: #fff !important
+    color: $white !important
 }
+  

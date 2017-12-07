@@ -1,7 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { Button, Checkbox, Icon, Input } from 'semantic-ui-react'
-import './registration.css'
-import { Field } from '../Form'
+import './styles/registration.css'
+import { Field, Form } from '../Form'
 
 export default class Registration extends React.Component {
     render() {
@@ -9,20 +10,22 @@ export default class Registration extends React.Component {
             <div id="form-box">
                 <h1>Регистрация</h1>
                 <div className="field-block">
-                    <form id="field__form">
+                    <Form>
                         <div className="field__element-wrap">
-                            <Field>
-                                <Input placeholder='Введите имя' />
+                            <Field validate={['required']}> 
+                                <Input className="js__input-error" placeholder={this.context.test} />
                             </Field>
                         </div>
                         <div className="field__element-wrap">
-                            <Input iconPosition='left' placeholder='Email'>
-                                <Icon name='at' />
-                                <input />
-                            </Input>
+                            <Field validate={['required', 'email']}>
+                                <Input iconPosition='left' placeholder='Email'>
+                                    <Icon name='at' />
+                                    <input />
+                                </Input>
+                            </Field>
                         </div>
                         <div className="field__element-wrap">
-                            <Input type="password" placeholder='Введите пароль' />
+                            <Input type="password" placeholder='Введитsadе пароль' />
                         </div>
                         <div className="field__element-wrap">
                             <Input type="password" placeholder='Введите пароль еще раз' />
@@ -35,7 +38,7 @@ export default class Registration extends React.Component {
                                 Зарегистрироваться
                             </Button>
                         </div>
-                    </form>
+                    </Form>
                 </div>
             </div>
         )

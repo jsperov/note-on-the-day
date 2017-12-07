@@ -1,5 +1,5 @@
-.js__input-error {
-  border: 1px solid #f55f5f; }
+@import 'src/sass/color.scss';
+@import 'src/sass/errors.scss';
 
 body {
   width: 100%;
@@ -7,22 +7,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
-  background: rbg(1, 50, 67); }
+  background: rbg(1,50,67)
+}
 
 h1 {
-  text-align: center; }
+  text-align: center
+}
 
 .container {
   width: 768px;
   padding: 0 27px;
-  margin: 0 auto; }
+  margin: 0 auto
+}
 
 textarea {
   display: block;
   width: 100%;
   min-height: 320px;
   margin: 25px 0;
-  box-sizing: border-box; }
+  box-sizing: border-box;
+} 
 
 input {
-  border: 1px solid transparent; }
+  border: 1px solid transparent
+}
