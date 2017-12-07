@@ -45,8 +45,8 @@ const promise =  (() => {
 })()
 
 promise
-.then(res => promise)
-.then(res => res)
-.then(res => res, err => err) 
+    .then(res => promise)
+    .then(res => res)
+    .then(res => res, err => err) 
 
 console.log('next') 
