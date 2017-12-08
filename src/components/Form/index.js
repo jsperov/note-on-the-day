@@ -38,6 +38,10 @@ class Field extends React.Component {
         
     }
 
+    removeError() {
+        console.log('delete errors')
+    }
+
     onBlur() {
         console.log('event - blur')
     }
