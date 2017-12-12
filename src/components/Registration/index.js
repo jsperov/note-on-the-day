@@ -2,7 +2,7 @@ import React from 'react'
 import propTypes from 'prop-types'
 import { Button, Checkbox, Icon, Input } from 'semantic-ui-react'
 import './styles/registration.css'
-import { Field, Form } from '../Form'
+import { Form } from '../Form'
 
 export default class Registration extends React.Component {
     sendData(event) {
@@ -17,17 +17,17 @@ export default class Registration extends React.Component {
                 <div className="field-block">
                     <Form>
                         <div className="field__element-wrap">
-                            <Field validate={ ['required'] }> 
+                            <Form.Field validate={ ['required'] } name="login"> 
                                 <Input className="js__input-error" placeholder={ this.context.test } />
-                            </Field>
+                            </Form.Field>
                         </div>
                         <div className="field__element-wrap">
-                            <Field validate={ ['required', 'email'] }>
+                            <Form.Field validate={ ['required', 'email'] } name="email">
                                 <Input iconPosition='left' placeholder='Email'>
                                     <Icon name='at' />
                                     <input />
                                 </Input>
-                            </Field>
+                            </Form.Field>
                         </div>
                         <div className="field__element-wrap">
                             <Input type="password" placeholder='Введите пароль' />

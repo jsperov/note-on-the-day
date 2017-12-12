@@ -2,40 +2,24 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import './form.css'
 
-class Form extends React.Component {
-    static childContextTypes = {
-        errors: PropTypes.string
-    }
-
-    getChildContext() {
-        return {
-            errors: 'required!'
-        }
-    }
-
-    render() {
-        return (
-            <form id="field__form">
-                {this.props.children}
-            </form>
-        )
-    }
-}
-
 class Field extends React.Component {
-    constructor() {
-        super()
-        this.state = {
-            errors: []
-        }
+    state = {
+        isValid: false,
+        errors: [],
+        value: ''
     }
 
     static contextTypes = {
-        errors: PropTypes.string
+        updateFormValues: PropTypes.func.isRequired
     }
 
-    onChange() {
-        
+    isValid(value) {
+        console.log(value)
+        return true
+    }
+
+    onChange = ({ target: { value } }) => {
+        this.context.updateFormValues(this.props.name, value, this.isValid(value))
     }
 
     removeError() {
@@ -47,13 +31,46 @@ class Field extends React.Component {
     }
 
     render() {
+        const childrens = React.Children.map(this.props.children, child => {
+            return React.cloneElement(child, { onChange:this.onChange, onBlur:this.onBlur, name: this.props.name })
+        })
+
         return (
             <div>
-                {this.props.children}
+                {childrens}
                 <span className="js__error">{this.context.errors}</span>
             </div>
         )
     }
 }
 
-export { Form, Field }
+class Form extends React.Component {
+    static childContextTypes = {
+        updateFormValues: PropTypes.func.isRequired
+    }
+
+    static Field = Field
+
+    state = {
+        values: {},
+        isValid: false
+    }
+
+    getChildContext() {
+        return {
+            updateFormValues: this.updateFormValues
+        }
+    }
+
+    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }}))
+
+    render() {
+        return (
+            <form id="field__form">
+                {this.props.children}
+            </form>
+        )
+    }
+}
+
+export { Form }
