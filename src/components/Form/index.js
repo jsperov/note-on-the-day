@@ -5,7 +5,7 @@ import './form.css'
 class Field extends React.Component {
     state = {
         isValid: false,
-        errors: [],
+        errors: [''],
         value: ''
     }
 
@@ -14,11 +14,14 @@ class Field extends React.Component {
     }
 
     isValid(value) {
-        console.log(value)
+        this.props.validate.forEach((elem) => {
+            console.log(elem, value)
+        })
         return true
     }
 
     onChange = ({ target: { value } }) => {
+        console.log(this.props)
         this.context.updateFormValues(this.props.name, value, this.isValid(value))
     }
 
