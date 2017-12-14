@@ -1,11 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import './form.css'
+import rules from './rules'
 
 class Field extends React.Component {
     state = {
         isValid: false,
-        errors: [''],
+        errors: [],
         value: ''
     }
 
@@ -13,16 +14,20 @@ class Field extends React.Component {
         updateFormValues: PropTypes.func.isRequired
     }
 
-    isValid(value) {
-        this.props.validate.forEach((elem) => {
-            console.log(elem, value)
+    updateFieldValues = ({isValid, errors, value}) => {
+        
+        this.setState({isValid, errors, value})
+    }
+
+    validator(value, updateFieldValues) {
+        this.props.validate.forEach((condition) => {
+            updateFieldValues(rules[condition](value))
         })
         return true
     }
 
     onChange = ({ target: { value } }) => {
-        console.log(this.props)
-        this.context.updateFormValues(this.props.name, value, this.isValid(value))
+        this.context.updateFormValues(this.props.name, value, this.validator(value, this.updateFieldValues))
     }
 
     removeError() {

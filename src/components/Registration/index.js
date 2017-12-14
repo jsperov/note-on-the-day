@@ -17,7 +17,7 @@ export default class Registration extends React.Component {
                 <div className="field-block">
                     <Form>
                         <div className="field__element-wrap">
-                            <Form.Field validate={ ['required'] } name="login"> 
+                            <Form.Field validate={ ['required', 'isNumber'] } name="login"> 
                                 <Input className="js__input-error" placeholder={ this.context.test } />
                             </Form.Field>
                         </div>
