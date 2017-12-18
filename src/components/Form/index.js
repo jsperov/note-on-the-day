@@ -14,16 +14,18 @@ class Field extends React.Component {
         updateFormValues: PropTypes.func.isRequired
     }
 
+    // field check true/false
+    isValidField = value => value ? true : false
+
     updateFieldValues = ({isValid, errors, value}) => {
-        
         this.setState({isValid, errors, value})
+        console.log(this.isValidField(isValid))
     }
 
-    validator(value, updateFieldValues) {
+    validator(value) {
         this.props.validate.forEach((condition) => {
-            updateFieldValues(rules[condition](value))
+            this.updateFieldValues(rules[condition](value))
         })
-        return true
     }
 
     onChange = ({ target: { value } }) => {
@@ -40,7 +42,7 @@ class Field extends React.Component {
 
     render() {
         const childrens = React.Children.map(this.props.children, child => {
-            return React.cloneElement(child, { onChange:this.onChange, onBlur:this.onBlur, name: this.props.name })
+            return React.cloneElement(child, { onChange:this.onChange, name: this.props.name })
         })
 
         return (
@@ -70,7 +72,7 @@ class Form extends React.Component {
         }
     }
 
-    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }}))
+    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }, isValid: true}))
 
     render() {
         return (

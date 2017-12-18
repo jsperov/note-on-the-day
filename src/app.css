@@ -1,5 +1,6 @@
 .js__input-error {
-  border: 1px solid #f55f5f; }
+  border: 1px solid #f55f5f;
+  border-radius: 5px; }
 
 body {
   width: 100%;

@@ -17,6 +17,13 @@ const rules = {
         value,
         isValid: /^\d+$/
             .test(value) ? true : false
+    }),
+
+    isPasswordStrength: value => ({
+        errors: ['the password is not reliable'],
+        value,
+        isValid: /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/
+            .test(value) ? true : false
     })
 }
 
