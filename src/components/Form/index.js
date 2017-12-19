@@ -19,7 +19,6 @@ class Field extends React.Component {
 
     updateFieldValues = ({isValid, errors, value}) => {
         this.setState({isValid, errors, value})
-        console.log(this.isValidField(isValid))
     }
 
     validator(value) {
@@ -41,8 +40,8 @@ class Field extends React.Component {
     }
 
     render() {
-        const childrens = React.Children.map(this.props.children, child => {
-            return React.cloneElement(child, { onChange:this.onChange, name: this.props.name })
+        const childrens = React.Children.map( this.props.children, child => {
+            return React.cloneElement(child, { onChange: this.onChange, name: this.props.name })
         })
 
         return (
@@ -72,7 +71,7 @@ class Form extends React.Component {
         }
     }
 
-    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }, isValid: true}))
+    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }, isValid: isValid}))
 
     render() {
         return (
