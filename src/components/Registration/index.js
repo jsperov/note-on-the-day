@@ -6,32 +6,39 @@ import { Form } from '../Form'
 
 export default class Registration extends React.Component {
     sendData(event) {
-        event.preventDefault()
-        console.log('send')
+        // TODO
     }
 
     render() {
+        const emailInput = (
+            <Input iconPosition='left' placeholder='Email'>
+                <Icon name='at' />
+                <input />
+            </Input>
+        )
+
         return (
             <div id="form-box">
                 <h1>Регистрация</h1>
                 <div className="field-block">
                     <Form>
                         <div className="field__element-wrap">
-                            <Form.Field validate={ ['required', 'isNumber'] } name="login"> 
-                                <Input className="js__input-error" placeholder={ this.context.test } />
+                            <Form.Field validate={ ['required', 'isNumber'] } name="login" component={ <Input/> }> 
+                                <div>test</div>
                             </Form.Field>
                         </div>
                         <div className="field__element-wrap">
-                            <Form.Field validate={ ['required', 'email'] } name="email">
-                                <Input iconPosition='left' placeholder='Email'>
-                                    <Icon name='at' />
-                                    <input />
-                                </Input>
+                            <Form.Field validate={ ['required', 'email'] } name="email" component={ emailInput }>
+                                <div>test</div>
                             </Form.Field>
                         </div>
                         <div className="field__element-wrap">
-                            <Form.Field validate={ (['isPasswordStrength']) } name="password">
-                                <Input type="password" placeholder='Введите пароль' />
+                            <Form.Field 
+                                validate={ (['isPasswordStrength']) }
+                                name="password"
+                                component={<Input type="password" placeholder='Введите пароль' />}
+                            >
+                                <div>test</div>
                             </Form.Field>
                         </div>
                         <div className="field__element-wrap">

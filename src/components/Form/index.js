@@ -32,20 +32,29 @@ class Field extends React.Component {
     }
 
     removeError() {
-        console.log('delete errors')
     }
 
-    onBlur() {
-        console.log('event - blur')
+    onBlur = (event) => {
     }
 
     render() {
+        const { isValid } = this.state
+        const { component } = this.props
+
+        console.log(component.props)
+
         const childrens = React.Children.map( this.props.children, child => {
-            return React.cloneElement(child, { onChange: this.onChange, name: this.props.name })
+            return React.cloneElement(child, { 
+                onChange: this.onChange,
+                onBlur: this.onBlur,
+                className: isValid ? '' : 'js__input-error',
+                name: this.props.name 
+            })
         })
 
         return (
             <div>
+                {component}
                 {childrens}
                 <span className="js__error">{this.context.errors}</span>
             </div>
