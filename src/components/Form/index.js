@@ -4,14 +4,22 @@ import './form.css'
 import rules from './rules'
 
 class Field extends React.Component {
-    state = {
-        isValid: false,
-        errors: [],
-        value: ''
+    static propTypes = {
+        component: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
+    }
+
+    static defaultProps = {
+        component: <input />
     }
 
     static contextTypes = {
         updateFormValues: PropTypes.func.isRequired
+    }
+
+    state = {
+        isValid: false,
+        errors: [],
+        value: ''
     }
 
     // field check true/false
@@ -39,22 +47,16 @@ class Field extends React.Component {
 
     render() {
         const { isValid } = this.state
-        const { component } = this.props
+        const { children } = this.props
+        const Component = () => this.props.component
 
-        console.log(component.props)
-
-        const childrens = React.Children.map( this.props.children, child => {
-            return React.cloneElement(child, {
-                onChange: this.onChange,
-                onBlur: this.onBlur,
-                className: isValid ? '' : 'js__input-error',
-                name: this.props.name
-            })
-        })
-
+        const childrens = React.Children.map(children, child => React.cloneElement(child))
         return (
             <div>
-                {component}
+                <Component
+                    className={ isValid ? '' : 'js__input-error' }
+                    {...this.props}
+                />
                 {childrens}
                 <span className="js__error">{this.context.errors}</span>
             </div>
