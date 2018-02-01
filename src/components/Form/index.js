@@ -31,14 +31,6 @@ class Field extends React.Component {
         this.context.updateFormValues(this.props.name, value, this.validator(value, this.updateFieldValues))
     }
 
-    removeError() {
-        console.log('delete errors')
-    }
-
-    onBlur() {
-        console.log('event - blur')
-    }
-
     render() {
         const childrens = React.Children.map( this.props.children, child => {
             return React.cloneElement(child, { onChange: this.onChange, name: this.props.name })
@@ -62,7 +54,7 @@ class Form extends React.Component {
 
     state = {
         values: {},
-        isValid: false
+        isValid: 0
     }
 
     getChildContext() {
@@ -71,7 +63,9 @@ class Form extends React.Component {
         }
     }
 
-    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }, isValid: isValid}))
+    updateFormValues = (name, value, isValid) => {
+        this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }, isValid}))
+    }
 
     render() {
         return (

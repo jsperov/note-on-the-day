@@ -7,7 +7,6 @@ import { Form } from '../Form'
 export default class Registration extends React.Component {
     sendData(event) {
         event.preventDefault()
-        console.log('send')
     }
 
     render() {
