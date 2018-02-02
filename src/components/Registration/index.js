@@ -10,8 +10,8 @@ export default class Registration extends React.Component {
     }
 
     render() {
-        const emailInput = (
-            <Input iconPosition='left' placeholder='Email'>
+        const emailInput = (props) => (
+            <Input iconPosition='left' placeholder='Введите пароль' {...props}>
                 <Icon name='at' />
                 <input />
             </Input>
@@ -23,26 +23,35 @@ export default class Registration extends React.Component {
                 <div className="field-block">
                     <Form>
                         <div className="field__element-wrap">
-                            <Form.Field validate={ ['required', 'isNumber'] } name="login" component={ <Input/> }>
-                                <div>test</div>
-                            </Form.Field>
+                            <Form.Field 
+                                validate={ ['required', 'isNumber'] } 
+                                name="login" 
+                                placeholder='Введите имя'
+                                component={Input}
+                            />
                         </div>
                         <div className="field__element-wrap">
-                            <Form.Field validate={ ['required', 'email'] } name="email" component={ emailInput }>
-                                <div>test</div>
-                            </Form.Field>
+                            <Form.Field 
+                                validate={ ['required', 'email'] }
+                                name="email"
+                                component={ emailInput }
+                            />
                         </div>
                         <div className="field__element-wrap">
                             <Form.Field
                                 validate={ (['isPasswordStrength']) }
                                 name="password"
-                                component={<Input type="password" placeholder='Введите пароль' />}
-                            >
-                                <div>test</div>
-                            </Form.Field>
+                                placeholder='Введите пароль'
+                                component={Input}
+                            />
                         </div>
                         <div className="field__element-wrap">
-                            <Input type="password" placeholder='Введите пароль еще раз' />
+                        <Form.Field
+                                validate={ (['isPasswordStrength']) }
+                                name="password"
+                                placeholder='Введите пароль еще раз'
+                                component={Input}
+                            />
                         </div>
                         <div className="field__element-wrap">
                             <Checkbox label={ <label>Я подписываюсь на все</label> } />

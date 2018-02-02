@@ -48,18 +48,14 @@ class Field extends React.Component {
     render() {
         const { isValid } = this.state
         const { children } = this.props
-        const Component = () => this.props.component
+        const Component = this.props.component
 
-        const childrens = React.Children.map(children, child => React.cloneElement(child))
         return (
-            <div>
-                <Component
-                    className={ isValid ? '' : 'js__input-error' }
-                    {...this.props}
-                />
-                {childrens}
-                <span className="js__error">{this.context.errors}</span>
-            </div>
+            <Component
+                onChange={this.onChange}
+                className={ isValid ? '' : "js__input-error" }
+                {...this.props}
+            />
         )
     }
 }
