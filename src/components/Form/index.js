@@ -49,6 +49,7 @@ class Field extends React.Component {
     render() {
         const { isValid } = this.state
 <<<<<<< HEAD
+<<<<<<< HEAD
         const { children, name } = this.props
         const Component = this.props.component
         const childrens = React.Children.map(children, child => React.cloneElement(child))
@@ -69,11 +70,20 @@ class Field extends React.Component {
         const Component = this.props.component
 
         return (
+=======
+        const { children } = this.props
+        const Component = this.props.component
+
+        return (
+>>>>>>> 4e72100c355eff7eff08bce2c3ba02a9ff6cd149
             <Component
                 onChange={this.onChange}
                 className={ isValid ? '' : "js__input-error" }
                 {...this.props}
             />
+<<<<<<< HEAD
+>>>>>>> 4e72100c355eff7eff08bce2c3ba02a9ff6cd149
+=======
 >>>>>>> 4e72100c355eff7eff08bce2c3ba02a9ff6cd149
         )
     }
