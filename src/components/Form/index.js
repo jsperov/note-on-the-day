@@ -36,6 +36,7 @@ class Field extends React.Component {
     }
 
     onChange = ({ target: { value } }) => {
+        console.log('e')
         this.context.updateFormValues(this.props.name, value, this.validator(value, this.updateFieldValues))
     }
 
@@ -47,19 +48,33 @@ class Field extends React.Component {
 
     render() {
         const { isValid } = this.state
-        const { children } = this.props
-        const Component = () => this.props.component
-
+<<<<<<< HEAD
+        const { children, name } = this.props
+        const Component = this.props.component
         const childrens = React.Children.map(children, child => React.cloneElement(child))
+
         return (
             <div>
                 <Component
+                    onChange={ this.onChange }
+                    name={ name }
                     className={ isValid ? '' : 'js__input-error' }
-                    {...this.props}
+                    { ...this.props }
                 />
                 {childrens}
                 <span className="js__error">{this.context.errors}</span>
             </div>
+=======
+        const { children } = this.props
+        const Component = this.props.component
+
+        return (
+            <Component
+                onChange={this.onChange}
+                className={ isValid ? '' : "js__input-error" }
+                {...this.props}
+            />
+>>>>>>> 4e72100c355eff7eff08bce2c3ba02a9ff6cd149
         )
     }
 }
