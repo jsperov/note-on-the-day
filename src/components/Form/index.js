@@ -40,9 +40,11 @@ class Field extends React.Component {
     }
 
     removeError() {
+        //TODO
     }
 
     onBlur = (event) => {
+        //TODO
     }
 
     render() {
