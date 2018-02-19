@@ -10,13 +10,6 @@ export default class Registration extends React.Component {
     }
 
     render() {
-        const emailInput = (props) => (
-            <Input iconPosition='left' placeholder='Введите пароль' {...props}>
-                <Icon name='at' />
-                <input />
-            </Input>
-        )
-
         return (
             <div id="form-box">
                 <h1>Регистрация</h1>
@@ -27,14 +20,14 @@ export default class Registration extends React.Component {
                                 validate={ ['required', 'isNumber'] } 
                                 name="login" 
                                 placeholder='Введите имя'
-                                component={Input}
+                                component={ Input }
                             />
                         </div>
                         <div className="field__element-wrap">
                             <Form.Field 
                                 validate={ ['required', 'email'] }
                                 name="email"
-                                component={ emailInput }
+                                component={ Input }
                             />
                         </div>
                         <div className="field__element-wrap">
@@ -42,7 +35,7 @@ export default class Registration extends React.Component {
                                 validate={ (['isPasswordStrength']) }
                                 name="password"
                                 placeholder='Введите пароль'
-                                component={Input}
+                                component={ Input }
                             />
                         </div>
                         <div className="field__element-wrap">
@@ -50,7 +43,7 @@ export default class Registration extends React.Component {
                                 validate={ (['isPasswordStrength']) }
                                 name="password"
                                 placeholder='Введите пароль еще раз'
-                                component={Input}
+                                component={ Input }
                             />
                         </div>
                         <div className="field__element-wrap">

@@ -9,7 +9,7 @@ class Field extends React.Component {
     }
 
     static defaultProps = {
-        component: <input />
+        component: () => <input />
     }
 
     static contextTypes = {
@@ -56,7 +56,6 @@ class Field extends React.Component {
             <Component
                 onChange={this.onChange}
                 className={ isValid ? '' : "js__input-error" }
-                {...this.props}
             />
         )
     }
