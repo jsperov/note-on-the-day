@@ -39,7 +39,7 @@ export default class Registration extends React.Component {
                             />
                         </div>
                         <div className="field__element-wrap">
-                        <Form.Field
+                            <Form.Field
                                 validate={ (['isPasswordStrength']) }
                                 name="password"
                                 placeholder='Введите пароль еще раз'
