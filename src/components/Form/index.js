@@ -9,7 +9,8 @@ class Field extends React.Component {
     }
 
     static defaultProps = {
-        component: () => <input />
+        component: () => <input />,
+        validate: []
     }
 
     static contextTypes = {
@@ -17,7 +18,7 @@ class Field extends React.Component {
     }
 
     state = {
-        isValid: false,
+        isValid: true,
         errors: [],
         value: ''
     }
