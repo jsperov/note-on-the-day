@@ -22,9 +22,6 @@ class Field extends React.Component {
         value: ''
     }
 
-    // field check true/false
-    isValidField = value => value ? true : false
-
     updateFieldValues = ({isValid, errors, value}) => {
         this.setState({isValid, errors, value})
     }
@@ -43,10 +40,6 @@ class Field extends React.Component {
         //TODO
     }
 
-    onBlur = (event) => {
-        //TODO
-    }
-
     render() {
         const { isValid } = this.state
         const { children } = this.props
@@ -54,7 +47,7 @@ class Field extends React.Component {
 
         return (
             <Component
-                onChange={this.onChange}
+                onBlur={this.onChange}
                 className={ isValid ? '' : "js__input-error" }
             />
         )
@@ -79,7 +72,16 @@ class Form extends React.Component {
         }
     }
 
-    updateFormValues = (name, value, isValid) => this.setState(state => ({values: { ...state.values, [name]: { value, isValid } }, isValid: isValid}))
+    updateFormValues = (name, value, isValid) => this.setState(state => ({
+        values: { 
+            ...state.values,
+            [name]: {
+                value,
+                isValid
+            } 
+        },
+        isValid
+    }))
 
     render() {
         return (
