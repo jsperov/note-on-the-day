@@ -1,8 +1,19 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Button, Checkbox, Icon, Input } from 'semantic-ui-react'
+import { Button, Checkbox, Icon, Input, Dropdown } from 'semantic-ui-react'
 import './styles/registration.css'
 import { Form } from '../Form'
+
+const USER_LEVEL = [{
+        'value': 'junior',
+        'text': 'junior'
+    }, {
+        'value': 'middle',
+        'text': 'middle'
+    }, {
+        'value': 'senior',
+        'text': 'senior'
+    }]
 
 export default class Registration extends React.Component {
     sendData(event) {
@@ -47,7 +58,20 @@ export default class Registration extends React.Component {
                             />
                         </div>
                         <div className="field__element-wrap">
-                            <Checkbox label={ <label>Я подписываюсь на все</label> } />
+                            <Form.Field
+                                options={USER_LEVEL}
+                                name="user"
+                                placeholder='senior'
+                                selection
+                                search
+                                validate={['required']}
+                                component={ Dropdown }
+                            />
+                        </div>
+                        <div className="field__element-wrap">
+                            <Checkbox 
+                                label={ <label>Я подписываюсь на все</label> } 
+                            />
                         </div>
                         <div className="field__element-wrap">
                             <Button onClick={ this.sendData } type="submit">

@@ -48,6 +48,7 @@ class Field extends React.Component {
 
         return (
             <Component
+                {...this.props} // TODO: to remove the warning
                 onBlur={this.onChange}
                 className={ isValid ? '' : "js__input-error" }
             />
