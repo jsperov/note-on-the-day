@@ -31,10 +31,12 @@ class Field extends React.Component {
         this.props.validate.forEach((condition) => {
             this.updateFieldValues(rules[condition](value))
         })
+
+        // TODO return boolean
     }
 
     onChange = ({ target: { value } }) => {
-        this.context.updateFormValues(this.props.name, value, this.validator(value, this.updateFieldValues))
+        this.context.updateFormValues(this.props.name, value, this.validator(value))
     }
 
     removeError() {

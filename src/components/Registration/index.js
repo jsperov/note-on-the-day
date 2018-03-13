@@ -69,8 +69,10 @@ export default class Registration extends React.Component {
                             />
                         </div>
                         <div className="field__element-wrap">
-                            <Checkbox 
-                                label={ <label>Я подписываюсь на все</label> } 
+                            <Form.Field
+                                name="agreement"
+                                label="Я подписываюсь на все"
+                                component={ Checkbox } 
                             />
                         </div>
                         <div className="field__element-wrap">
