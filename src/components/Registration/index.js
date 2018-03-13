@@ -25,7 +25,7 @@ export default class Registration extends React.Component {
             <div id="form-box">
                 <h1>Регистрация</h1>
                 <div className="field-block">
-                    <Form>
+                    <Form id="f-registration">
                         <div className="field__element-wrap">
                             <Form.Field 
                                 validate={ ['required', 'isNumber'] } 

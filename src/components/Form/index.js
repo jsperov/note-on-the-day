@@ -87,7 +87,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form id="field__form">
+            <form {...this.props} >
                 {this.props.children}
             </form>
         )
