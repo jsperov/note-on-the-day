@@ -23,8 +23,12 @@ class Field extends React.Component {
         value: ''
     }
 
-    updateFieldValues = ({isValid, errors, value}) => {
-        this.setState({isValid, errors, value})
+    updateFieldValues = ({ isValid, errors, value }) => {
+        this.setState({
+            isValid,
+            errors,
+            value
+        })
     }
 
     validator(value) {
@@ -32,7 +36,10 @@ class Field extends React.Component {
             this.updateFieldValues(rules[condition](value))
         })
 
-        // TODO return boolean
+        // TODO async setState
+        console.log(this.state.isValid)
+
+        return this.state.isValid
     }
 
     onChange = ({ target: { value } }) => {
