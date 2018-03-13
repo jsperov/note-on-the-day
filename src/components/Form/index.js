@@ -43,7 +43,6 @@ class Field extends React.Component {
 
     render() {
         const { isValid } = this.state
-        const { children } = this.props
         const Component = this.props.component
 
         return (

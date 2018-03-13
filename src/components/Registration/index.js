@@ -1,6 +1,6 @@
 import React from 'react'
 import propTypes from 'prop-types'
-import { Button, Checkbox, Icon, Input, Dropdown } from 'semantic-ui-react'
+import { Button, Checkbox, Input, Dropdown } from 'semantic-ui-react'
 import './styles/registration.css'
 import { Form } from '../Form'
 
