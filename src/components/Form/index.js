@@ -28,7 +28,7 @@ class Field extends React.Component {
             isValid,
             errors,
             value
-        })
+        }, () => this.context.updateFormValues(this.props.name, value, isValid))
     }
 
     validator(value) {
