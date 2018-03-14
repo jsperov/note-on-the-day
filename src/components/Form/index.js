@@ -23,7 +23,7 @@ class Field extends React.Component {
         value: ''
     }
 
-    updateFieldValues = ({ isValid, errors, value }) => {
+    updateField = ({ isValid, errors, value }) => {
         this.setState({
             isValid,
             errors,
@@ -33,17 +33,12 @@ class Field extends React.Component {
 
     validator(value) {
         this.props.validate.forEach((condition) => {
-            this.updateFieldValues(rules[condition](value))
+            this.updateField(rules[condition](value))
         })
-
-        // TODO async setState
-        console.log(this.state.isValid)
-
-        return this.state.isValid
     }
 
     onChange = ({ target: { value } }) => {
-        this.context.updateFormValues(this.props.name, value, this.validator(value))
+        this.validator(value)
     }
 
     removeError() {
