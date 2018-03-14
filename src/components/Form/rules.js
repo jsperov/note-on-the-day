@@ -1,3 +1,5 @@
+import REG_EXP from './const'
+
 const rules = {
     required: value => ({
         errors: ['field should not be empty'],
@@ -8,21 +10,28 @@ const rules = {
     email: value => ({
         errors: ['not correct email'],
         value,
-        isValid: /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/
+        isValid: REG_EXP.EMAIL
             .test(value) ? true : false
     }),
 
     isNumber: value => ({
         errors: ['NaN'],
         value,
-        isValid: /^\d+$/
+        isValid: REG_EXP.NUMBER
+            .test(value) ? true : false
+    }),
+
+    isPhoneNumber: value => ({
+        errors: ['incorrect number'],
+        value,
+        isValid: REG_EXP.PHONE_NUMBER
             .test(value) ? true : false
     }),
 
     isPasswordStrength: value => ({
         errors: ['the password is not reliable'],
         value,
-        isValid: /^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{6,})/
+        isValid: REG_EXP.CHECK_PASSWORD
             .test(value) ? true : false
     })
 }

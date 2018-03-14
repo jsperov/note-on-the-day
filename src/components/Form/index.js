@@ -9,7 +9,8 @@ class Field extends React.Component {
     }
 
     static defaultProps = {
-        component: () => <input />
+        component: () => <input />,
+        validate: []
     }
 
     static contextTypes = {
@@ -17,23 +18,32 @@ class Field extends React.Component {
     }
 
     state = {
-        isValid: false,
+        isValid: true,
         errors: [],
         value: ''
     }
 
-    updateFieldValues = ({isValid, errors, value}) => {
-        this.setState({isValid, errors, value})
+    updateFieldValues = ({ isValid, errors, value }) => {
+        this.setState({
+            isValid,
+            errors,
+            value
+        })
     }
 
     validator(value) {
         this.props.validate.forEach((condition) => {
             this.updateFieldValues(rules[condition](value))
         })
+
+        // TODO async setState
+        console.log(this.state.isValid)
+
+        return this.state.isValid
     }
 
     onChange = ({ target: { value } }) => {
-        this.context.updateFormValues(this.props.name, value, this.validator(value, this.updateFieldValues))
+        this.context.updateFormValues(this.props.name, value, this.validator(value))
     }
 
     removeError() {
@@ -42,11 +52,11 @@ class Field extends React.Component {
 
     render() {
         const { isValid } = this.state
-        const { children } = this.props
         const Component = this.props.component
 
         return (
             <Component
+                {...this.props} // TODO: to remove the warning
                 onBlur={this.onChange}
                 className={ isValid ? '' : "js__input-error" }
             />
@@ -85,7 +95,7 @@ class Form extends React.Component {
 
     render() {
         return (
-            <form id="field__form">
+            <form {...this.props} >
                 {this.props.children}
             </form>
         )

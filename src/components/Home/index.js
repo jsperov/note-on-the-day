@@ -11,7 +11,7 @@ export default class Home extends React.Component {
                 <header>
                     <div className="h-left-zone">
                         <div className="logo">
-                            <img src={Logo} />
+                            <img src={Logo} alt="logo"/>
                         </div>
                     </div>
                     <div className="h-right-zone">
