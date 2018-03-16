@@ -4,97 +4,105 @@ import './form.css'
 import rules from './rules'
 
 class Field extends React.Component {
-    static propTypes = {
-        component: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
-    }
+  static propTypes = {
+    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
+      .isRequired,
+    name: PropTypes.string,
+    validate: PropTypes.array,
+    children: PropTypes.node.isRequired
+  }
 
-    static defaultProps = {
-        component: () => <input />,
-        validate: []
-    }
+  static defaultProps = {
+    component: () => <input />,
+    validate: []
+  }
 
-    static contextTypes = {
-        updateFormValues: PropTypes.func.isRequired
-    }
+  static contextTypes = {
+    updateFormValues: PropTypes.func.isRequired
+  }
 
-    state = {
-        isValid: true,
-        errors: [],
-        value: ''
-    }
+  state = {
+    isValid: true,
+    errors: [],
+    value: ''
+  }
 
-    updateField = ({ isValid, errors, value }) => {
-        this.setState({
-            isValid,
-            errors,
-            value
-        }, () => this.context.updateFormValues(this.props.name, value, isValid))
-    }
+  updateField = ({ isValid, errors, value }) => {
+    this.setState(
+      {
+        isValid,
+        errors,
+        value
+      },
+      () => this.context.updateFormValues(this.props.name, value, isValid)
+    )
+  }
 
-    validator(value) {
-        this.props.validate.forEach((condition) => {
-            this.updateField(rules[condition](value))
-        })
-    }
+  validator(value) {
+    this.props.validate.forEach(condition => {
+      this.updateField(rules[condition](value))
+    })
+  }
 
-    onChange = ({ target: { value } }) => {
-        this.validator(value)
-    }
+  onChange = ({ target: { value } }) => {
+    this.validator(value)
+  }
 
-    removeError() {
-        //TODO
-    }
+  removeError() {
+    //TODO
+  }
 
-    render() {
-        const { isValid } = this.state
-        const Component = this.props.component
+  render() {
+    const { isValid } = this.state
+    const Component = this.props.component
 
-        return (
-            <Component
-                {...this.props} // TODO: to remove the warning
-                onBlur={this.onChange}
-                className={ isValid ? '' : "js__input-error" }
-            />
-        )
-    }
+    return (
+      <Component
+        {...this.props} // TODO: to remove the warning
+        onBlur={this.onChange}
+        className={isValid ? '' : 'js__input-error'}
+      />
+    )
+  }
 }
 
 class Form extends React.Component {
-    static childContextTypes = {
-        updateFormValues: PropTypes.func.isRequired
+  static propTypes = {
+    children: PropTypes.node.isRequired
+  }
+
+  static childContextTypes = {
+    updateFormValues: PropTypes.func.isRequired
+  }
+
+  static Field = Field
+
+  state = {
+    values: {},
+    isValid: false
+  }
+
+  getChildContext() {
+    return {
+      updateFormValues: this.updateFormValues
     }
+  }
 
-    static Field = Field
-
-    state = {
-        values: {},
-        isValid: false
-    }
-
-    getChildContext() {
-        return {
-            updateFormValues: this.updateFormValues
+  updateFormValues = (name, value, isValid) =>
+    this.setState(state => ({
+      values: {
+        ...state.values,
+        [name]: {
+          value,
+          isValid
         }
-    }
-
-    updateFormValues = (name, value, isValid) => this.setState(state => ({
-        values: { 
-            ...state.values,
-            [name]: {
-                value,
-                isValid
-            } 
-        },
-        isValid
+      },
+      isValid
     }))
 
-    render() {
-        return (
-            <form {...this.props} >
-                {this.props.children}
-            </form>
-        )
-    }
+  render() {
+    return <form {...this.props}>{this.props.children}</form>
+  }
 }
 
 export { Form }
