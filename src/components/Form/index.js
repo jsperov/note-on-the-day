@@ -4,13 +4,12 @@ import './form.css'
 import rules from './rules'
 
 class Field extends React.Component {
-  static propTypes = {
-    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element])
-      .isRequired,
+  static propTypes =  {
+    component: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
     name: PropTypes.string,
     validate: PropTypes.array,
     children: PropTypes.node.isRequired
-  }
+  };
 
   static defaultProps = {
     component: () => <input />,

@@ -1,27 +1,27 @@
-{ 
-  "env": {
-    "browser": true,
-    "node": true,
-    "es6": true
-  },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
-  "plugins": [
-    "react"
-  ],
-  "parser": "babel-eslint",
-  "parserOptions": {
-    "ecmaFeatures": {
-      "experimentalObjectRestSpread": true,
-      "experimentalDecorators": true,
-      "jsx": true,
-      "classes": true
+{
+    "env": {
+        "browser": true,
+        "es6": true,
+        "node": true
     },
-    "sourceType": "module"
-  },
-  "rules": {
+    "extends": [
+      "eslint:recommended",
+      "plugin:react/recommended"
+    ],
+    "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaFeatures": {
+        "experimentalObjectRestSpread": true,
+        "experimentalDecorators": true,
+        "jsx": true,
+        "classes": true
+      },
+      "sourceType": "module"
+    },
+    "plugins": [
+        "react"
+    ],
+    "rules": {
       "no-dupe-args": "error",
       "no-dupe-keys": "error",
       "quotes": ["error", "single"],
