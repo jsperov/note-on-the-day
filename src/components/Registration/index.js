@@ -1,7 +1,9 @@
 import React from 'react'
 import { Button, Checkbox, Input, Dropdown } from 'semantic-ui-react'
-import './styles/registration.css'
 import { Form } from '../Form'
+import WrapField from '../Form/HOC/WrapField'
+
+import './styles/registration.css'
 
 const USER_LEVEL = [
   {
@@ -34,14 +36,14 @@ export default class Registration extends React.Component {
                 validate={['required', 'isNumber']}
                 name="login"
                 placeholder="Введите имя"
-                component={Input}
+                component={WrapField(Input)}
               />
             </div>
             <div className="field__element-wrap">
               <Form.Field
                 validate={['required', 'email']}
                 name="email"
-                component={Input}
+                component={WrapField(Input)}
               />
             </div>
             <div className="field__element-wrap">
@@ -49,7 +51,7 @@ export default class Registration extends React.Component {
                 validate={['isPasswordStrength']}
                 name="password"
                 placeholder="Введите пароль"
-                component={Input}
+                component={WrapField(Input)}
               />
             </div>
             <div className="field__element-wrap">
@@ -57,7 +59,7 @@ export default class Registration extends React.Component {
                 validate={['isPasswordStrength']}
                 name="password"
                 placeholder="Введите пароль еще раз"
-                component={Input}
+                component={WrapField(Input)}
               />
             </div>
             <div className="field__element-wrap">
@@ -68,14 +70,14 @@ export default class Registration extends React.Component {
                 selection
                 search
                 validate={['required']}
-                component={Dropdown}
+                component={WrapField(Dropdown)}
               />
             </div>
             <div className="field__element-wrap">
               <Form.Field
                 name="agreement"
                 label="Я подписываюсь на все"
-                component={Checkbox}
+                component={WrapField(Checkbox)}
               />
             </div>
             <div className="field__element-wrap">

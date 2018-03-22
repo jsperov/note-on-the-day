@@ -1,6 +1,8 @@
 import React from 'react'
 import { Button, Checkbox, Input } from 'semantic-ui-react'
 import { Form } from '../Form'
+import WrapField from '../Form/HOC/WrapField'
+
 import 'semantic-ui-css/semantic.min.css'
 
 export default class Login extends React.Component {
@@ -10,14 +12,14 @@ export default class Login extends React.Component {
         <h1>Вход</h1>
         <Form className="field-block">
           <div className="field__element-wrap">
-            <Form.Field validate={['required', 'isNumber']} name="login" placeholder="Введите имя" component={Input} />
+            <Form.Field validate={['required', 'isNumber']} name="login" placeholder="Введите имя" component={WrapField(Input)} />
           </div>
           <div className="field__element-wrap">
             <Form.Field
               validate={['isPasswordStrength']}
               name="password"
               placeholder="Введите пароль"
-              component={Input}
+              component={WrapField(Input)}
             />
           </div>
           <div className="field__element-wrap">

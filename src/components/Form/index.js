@@ -52,7 +52,7 @@ class Field extends React.Component {
   }
 
   render() {
-    const { isValid } = this.state
+    const { isValid, errors } = this.state
     const Component = this.props.component
 
     return (
@@ -60,6 +60,7 @@ class Field extends React.Component {
         {...this.props} // TODO: to remove the warning
         onBlur={this.onChange}
         className={isValid ? '' : 'js__input-error'}
+        errors={errors}
       />
     )
   }

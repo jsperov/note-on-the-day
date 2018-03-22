@@ -1,3 +1,5 @@
 .js__error {
-    color: red
-}
+  color: red; }
+
+.js__msg-error {
+  padding: 10px 0; }
