@@ -13,7 +13,7 @@ const WrapField = (Component) => {
       return (
         <div>
           <Component {...this.props}/> 
-          {errors && <div className="js__error js__msg-error">{errors[0]}</div>}
+          {errors && <div className="js__error">{errors[0]}</div>}
         </div>
       )
     }

@@ -27,12 +27,12 @@ class Field extends React.Component {
   }
 
   updateField = ({ isValid, errors, value }) => {
-    this.setState(
-      {
+    this.setState((prevState =>
+      ({
         isValid,
-        errors,
+        errors: [...prevState.errors, errors], 
         value
-      },
+      })),
       () => this.context.updateFormValues(this.props.name, value, isValid)
     )
   }

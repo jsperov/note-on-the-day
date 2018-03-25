@@ -77,6 +77,7 @@ export default class Registration extends React.Component {
               <Form.Field
                 name="agreement"
                 label="Я подписываюсь на все"
+                validate={['required']}
                 component={WrapField(Checkbox)}
               />
             </div>
