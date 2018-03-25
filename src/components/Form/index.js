@@ -1,7 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import './form.css'
 import rules from './rules'
+import { uniq } from 'lodash'
+
+import './form.css'
 
 class Field extends React.Component {
   static propTypes =  {
@@ -26,11 +28,11 @@ class Field extends React.Component {
     value: ''
   }
 
-  updateField = ({ isValid, errors, value }) => {
+  updateField = ({ isValid, error, value }) => {
     this.setState((prevState =>
       ({
         isValid,
-        errors: [...prevState.errors, errors], 
+        errors: uniq([...prevState.errors, error]), 
         value
       })),
       () => this.context.updateFormValues(this.props.name, value, isValid)

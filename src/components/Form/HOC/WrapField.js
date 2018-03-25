@@ -6,14 +6,16 @@ const WrapField = (Component) => {
     static propTypes =  {
       errors: PropTypes.array
     };
+
     
     render() {
       const { errors } = this.props
+      const listErrors = errors && errors.map((err, i) => <li key={i}>{err}</li>)
 
       return (
         <div>
-          <Component {...this.props}/> 
-          {errors && <div className="js__error">{errors[0]}</div>}
+          <Component {...this.props}/>
+          {errors && <div className="js__error">{listErrors}</div>}
         </div>
       )
     }
