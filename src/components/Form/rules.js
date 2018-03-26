@@ -29,6 +29,12 @@ const rules = {
     error: 'the password is not reliable',
     value,
     isValid: REG_EXP.CHECK_PASSWORD.test(value) ? true : false
+  }),
+
+  isPIN: value => ({
+    error: 'incorrect PIN code',
+    value,
+    isValid: REG_EXP.PIN_CODE.test(value) ? true : false
   })
 }
 
