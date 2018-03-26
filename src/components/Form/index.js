@@ -32,7 +32,7 @@ class Field extends React.Component {
     this.setState((prevState =>
       ({
         isValid,
-        errors: !isValid ? uniq([...prevState.errors, error]) : null,
+        errors: !isValid ? uniq([...prevState.errors, error]) : [],
         value
       })),
       () => this.context.updateFormValues(this.props.name, value, isValid)
