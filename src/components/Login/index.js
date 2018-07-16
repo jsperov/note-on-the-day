@@ -1,9 +1,9 @@
 import React from 'react'
-import { Button, Checkbox, Input } from 'semantic-ui-react'
+import { Button, Checkbox, Input } from 'antd'
 import { Form } from '../Form'
 import WrapField from '../Form/HOC/WrapField'
 
-import 'semantic-ui-css/semantic.min.css'
+import 'antd/dist/antd.css'
 
 export default class Login extends React.Component {
   render() {

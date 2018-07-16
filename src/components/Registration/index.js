@@ -1,24 +1,10 @@
 import React from 'react'
-import { Button, Checkbox, Input, Dropdown } from 'semantic-ui-react'
+import { Button, Checkbox, Input } from 'antd'
 import { Form } from '../Form'
 import WrapField from '../Form/HOC/WrapField'
 
+import 'antd/dist/antd.css'
 import './styles/registration.css'
-
-const USER_LEVEL = [
-  {
-    value: 'junior',
-    text: 'junior'
-  },
-  {
-    value: 'middle',
-    text: 'middle'
-  },
-  {
-    value: 'senior',
-    text: 'senior'
-  }
-]
 
 export default class Registration extends React.Component {
   sendData() {
@@ -30,7 +16,10 @@ export default class Registration extends React.Component {
       <div id="form-box">
         <h1>Регистрация</h1>
         <div className="field-block">
-          <Form id="f-registration">
+          <Form 
+            id="f-registration"
+            onSave={this.sendData}
+          >
             <div className="field__element-wrap">
               <Form.Field
                 validate={['required', 'isNumber']}
@@ -60,17 +49,6 @@ export default class Registration extends React.Component {
                 name="password"
                 placeholder="Введите пароль еще раз"
                 component={WrapField(Input)}
-              />
-            </div>
-            <div className="field__element-wrap">
-              <Form.Field
-                options={USER_LEVEL}
-                name="user"
-                placeholder="senior"
-                selection
-                search
-                validate={['required']}
-                component={WrapField(Dropdown)}
               />
             </div>
             <div className="field__element-wrap">

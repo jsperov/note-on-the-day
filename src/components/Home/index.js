@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Logo from './task.svg'
+import { Button } from 'antd'
+
+import 'antd/dist/antd.css'
 import './home.css'
-import { Button } from 'semantic-ui-react'
+import Logo from './task.svg'
 
 export default class Home extends React.Component {
     render() {

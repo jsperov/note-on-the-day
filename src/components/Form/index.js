@@ -70,7 +70,8 @@ class Field extends React.Component {
 
 class Form extends React.Component {
   static propTypes = {
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    onSave: PropTypes.func
   }
 
   static childContextTypes = {
@@ -81,7 +82,7 @@ class Form extends React.Component {
 
   state = {
     values: {},
-    isValid: false
+    isValidForm: false
   }
 
   getChildContext() {
@@ -99,10 +100,14 @@ class Form extends React.Component {
           isValid
         }
       },
-      isValid
+      isValidForm: true
     }))
 
   render() {
+    React.Children.forEach(this.props.children, (child) => {
+      child
+    })
+
     return <form {...this.props}>{this.props.children}</form>
   }
 }
