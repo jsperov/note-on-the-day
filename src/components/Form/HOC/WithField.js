@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const WrapField = (Component) => {
-  return class WithField extends React.Component {
+const WithField = (Component) => {
+  return class _WithField extends React.Component {
     static propTypes =  {
       errors: PropTypes.array
     };
@@ -22,4 +22,4 @@ const WrapField = (Component) => {
   }
 }
 
-export default WrapField
+export { WithField }

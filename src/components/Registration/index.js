@@ -1,7 +1,7 @@
 import React from 'react'
 import { Button, Checkbox, Input } from 'antd'
 import { Form } from '../Form'
-import WrapField from '../Form/HOC/WrapField'
+import { WithField } from '../Form/HOC/WithField'
 
 import 'antd/dist/antd.css'
 import './styles/registration.css'
@@ -25,14 +25,14 @@ export default class Registration extends React.Component {
                 validate={['required', 'isNumber']}
                 name="login"
                 placeholder="Введите имя"
-                component={WrapField(Input)}
+                component={WithField(Input)}
               />
             </div>
             <div className="field__element-wrap">
               <Form.Field
                 validate={['required', 'email']}
                 name="email"
-                component={WrapField(Input)}
+                component={WithField(Input)}
               />
             </div>
             <div className="field__element-wrap">
@@ -40,7 +40,7 @@ export default class Registration extends React.Component {
                 validate={['isPasswordStrength']}
                 name="password"
                 placeholder="Введите пароль"
-                component={WrapField(Input)}
+                component={WithField(Input)}
               />
             </div>
             <div className="field__element-wrap">
@@ -48,7 +48,7 @@ export default class Registration extends React.Component {
                 validate={['isPasswordStrength']}
                 name="password"
                 placeholder="Введите пароль еще раз"
-                component={WrapField(Input)}
+                component={WithField(Input)}
               />
             </div>
             <div className="field__element-wrap">
@@ -56,7 +56,7 @@ export default class Registration extends React.Component {
                 name="agreement"
                 label="Я подписываюсь на все"
                 validate={['required']}
-                component={WrapField(Checkbox)}
+                component={WithField(Checkbox)}
               />
             </div>
             <div className="field__element-wrap">
