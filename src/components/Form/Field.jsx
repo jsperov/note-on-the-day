@@ -8,7 +8,8 @@ class Field extends React.Component {
     component: PropTypes.oneOfType([PropTypes.func, PropTypes.element]).isRequired,
     name: PropTypes.string,
     validate: PropTypes.array,
-    children: PropTypes.node.isRequired
+    children: PropTypes.node.isRequired,
+    context: PropTypes.any,
   };
 
   static defaultProps = {
@@ -45,10 +46,6 @@ class Field extends React.Component {
 
   onChange = ({ target: { value } }) => {
     this.validator(value)
-  }
-
-  removeError() {
-    //TODO
   }
 
   render() {

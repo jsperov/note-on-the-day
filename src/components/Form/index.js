@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import { FormContext } from './FormContext'
 import { Field } from './Field'
 
 import './form.css'
@@ -11,10 +12,6 @@ class Form extends React.Component {
     onSave: PropTypes.func
   }
 
-  static childContextTypes = {
-    updateFormValues: PropTypes.func.isRequired
-  }
-
   static Field = Field
 
   state = {
@@ -22,10 +19,10 @@ class Form extends React.Component {
     isValidForm: false
   }
 
-  getChildContext() {
-    return {
-      updateFormValues: this.updateFormValues
-    }
+  setValidForm = () => {
+    this.setState({
+      isValidForm: !Object.values(this.state.values).some(el => el.isValid === false)
+    })
   }
 
   updateFormValues = (name, value, isValid) =>
@@ -36,16 +33,21 @@ class Form extends React.Component {
           value,
           isValid
         }
-      },
-      isValidForm: true
-    }))
+      }
+    }), this.setValidForm())
 
   render() {
     React.Children.forEach(this.props.children, (child) => {
       child
     })
 
-    return <form {...this.props}>{this.props.children}</form>
+    return ( 
+      <FormContext.Provider value={{ updateFormValues: this.updateFormValues}}>
+        <form {...this.props}>
+          {this.props.children}
+        </form>
+      </FormContext.Provider>
+    )
   }
 }
 
