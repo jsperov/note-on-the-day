@@ -41,7 +41,7 @@ class Form extends React.Component {
       child
     })
 
-    return ( 
+    return (
       <FormContext.Provider value={{ updateFormValues: this.updateFormValues}}>
         <form {...this.props}>
           {this.props.children}
