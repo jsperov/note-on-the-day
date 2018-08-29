@@ -6,7 +6,8 @@
     },
     "extends": [
       "eslint:recommended",
-      "plugin:react/recommended"
+      "plugin:react/recommended",
+      "airbnb"
     ],
     "parser": "babel-eslint",
     "parserOptions": {
@@ -19,14 +20,14 @@
       "sourceType": "module"
     },
     "plugins": [
-        "react",
-        "jsx-a11y"
+      "react",
+      "jsx-a11y"
     ],
     "rules": {
       "no-dupe-args": "error",
       "no-dupe-keys": "error",
       "quotes": ["error", "single"],
-      "semi": [2, "never"],
+      "semi": [2, "always", { "omitLastInOneLineBlock": true}],
       "quote-props": [2, "as-needed"],
       "padding-line-between-statements": ["error", {
         "blankLine": "always",
@@ -38,6 +39,7 @@
         "keywords": "always",
         "classes": "always"
       }],
+      "linebreak-style": 0,
       "space-in-parens": ["error", "never"],
       "no-var": "error",
       "jsx-a11y/aria-props": 2,
@@ -47,6 +49,6 @@
       "jsx-a11y/mouse-events-have-key-events": 2,
       "jsx-a11y/role-has-required-aria-props": 2,
       "jsx-a11y/role-supports-aria-props": 2,
-      "jsx-a11y/no-static-element-interactions": 0,
+      "jsx-a11y/no-static-element-interactions": 0
     }
 }
