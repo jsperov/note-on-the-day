@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 const WithField = (Component) => {
-  return class _WithField extends React.PureComponent {
+  class _WithField extends React.PureComponent {
     static propTypes = {
       errors: PropTypes.array,
     };
@@ -19,7 +19,9 @@ const WithField = (Component) => {
         </div>
       );
     }
-  };
+  }
+
+  return _WithField;
 };
 
 export { WithField };

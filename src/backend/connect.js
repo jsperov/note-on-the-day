@@ -6,7 +6,7 @@ mongoose.Promise = Promise;
 mongoose
   .connect(
     config.get('database:host'),
-    { useMongoClient: true }
+    { useMongoClient: true },
   )
   .then(() => {
     console.log('MongoDB server started');
