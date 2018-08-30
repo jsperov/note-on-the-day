@@ -1,5 +1,5 @@
 import { isEmpty } from 'lodash';
-import REG_EXP from './const';
+import { REG_EXP } from './const';
 
 const rules = {
   required: value => ({

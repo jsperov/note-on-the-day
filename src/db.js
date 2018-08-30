@@ -1,10 +1,11 @@
-export class LocalStorage {
+export const LocalStorage = () => ({
+  recordStorage: (state) => {
+    localStorage.setItem('tasks', JSON.stringify(state));
+  },
 
-    recordStorage(state) {
-        localStorage.setItem("tasks", JSON.stringify(state));
-    }
-
-    getStorage(key) {
-        return (JSON.parse(localStorage.getItem(key))) ? JSON.parse(localStorage.getItem(key)) : []
-    }
-}
+  getStorage: (key) => {
+    return JSON.parse(localStorage.getItem(key))
+      ? JSON.parse(localStorage.getItem(key))
+      : [];
+  },
+});

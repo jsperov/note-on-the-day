@@ -1,4 +1,6 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+
 import { Tasks } from './Tasks';
 import './viewTasks.css';
 

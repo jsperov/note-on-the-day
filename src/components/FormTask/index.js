@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import assignPropTypes from 'assign-prop-types';
 
-import SelectColor from './SelectColor';
+import { SelectColor } from './SelectColor';
 import {} from './formTask.css';
 
 export const FormTask = assignPropTypes({

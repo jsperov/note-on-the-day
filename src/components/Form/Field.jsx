@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { uniq } from 'lodash';
 
-import rules from './rules';
+import { rules } from './rules';
 
 class Field extends React.Component {
   static propTypes = {

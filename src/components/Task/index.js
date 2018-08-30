@@ -1,7 +1,7 @@
 import React from 'react';
 import { LocalStorage } from '../../db';
-import FormTask from '../FormTask/';
-import ViewTasks from '../ViewTasks/';
+import { FormTask } from '../FormTask/';
+import { ViewTasks } from '../ViewTasks/';
 
 export default class Task extends React.Component {
   constructor() {
