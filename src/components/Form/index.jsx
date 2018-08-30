@@ -20,7 +20,7 @@ class Form extends React.Component {
 
   setValidForm = () => {
     this.setState({
-      isValidForm: !Object.values(this.state.values).some(el => el.isValid === false)
+      isValidForm: !Object.values(this.state.values).some(el => el.isValid === false),
     });
   }
 

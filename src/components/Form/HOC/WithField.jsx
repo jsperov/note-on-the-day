@@ -10,7 +10,7 @@ const WithField = (Component) => {
     render() {
       const { errors } = this.props;
       const listErrors =
-        errors && errors.map((err, i) => <li key={i}>{err}</li>);
+        errors && errors.map(err => <li key={err}>{err}</li>);
 
       return (
         <div>
