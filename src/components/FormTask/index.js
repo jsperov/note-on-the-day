@@ -4,7 +4,7 @@ import {} from './formTask.css'
 import SelectColor from './SelectColor'
 
 
-export default class FormTask extends React.Component {
+export class FormTask extends React.Component {
     render() {
         return (
             <form className="formTask">

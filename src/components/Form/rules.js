@@ -36,7 +36,7 @@ const rules = {
     error: 'incorrect PIN code',
     value,
     isValid: REG_EXP.PIN_CODE.test(value),
-  })
-}
+  }),
+};
 
-export default rules;
+export { rules };

@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 
-import { FormContext } from './FormContext'
+import { FormContext } from './FormContext';
 
 const FormProvider = (Field) => {
   return class _FormProvider extends React.Component {
@@ -14,4 +14,4 @@ const FormProvider = (Field) => {
   }
 }
 
-export { FormProvider }
+export { FormProvider };

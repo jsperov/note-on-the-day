@@ -1,25 +1,19 @@
-import React from 'react'
-import { Button, Checkbox, Input } from 'antd'
-import { Form } from '../Form'
-import { WithField } from '../Form/HOC/WithField'
+import React from 'react';
+import { Button, Checkbox, Input } from 'antd';
+import 'antd/dist/antd.css';
 
-import 'antd/dist/antd.css'
-import './styles/registration.css'
+import { Form } from '../Form';
+import { WithField } from '../Form/HOC/WithField';
 
-export default class Registration extends React.Component {
-  sendData() {
-    // TODO
-  }
+import './styles/registration.css';
 
+export class Registration extends React.Component {
   render() {
     return (
       <div id="form-box">
         <h1>Регистрация</h1>
         <div className="field-block">
-          <Form 
-            id="f-registration"
-            onSave={this.sendData}
-          >
+          <Form id="f-registration" onSave={this.sendData}>
             <div className="field__element-wrap">
               <Form.Field
                 validate={['required', 'isNumber']}
@@ -67,6 +61,6 @@ export default class Registration extends React.Component {
           </Form>
         </div>
       </div>
-    )
+    );
   }
 }

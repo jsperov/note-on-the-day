@@ -1,10 +1,16 @@
-const mongoose = require('mongoose')
-const config = require('./config')
+const mongoose = require('mongoose');
+const config = require('./config');
 
-mongoose.Promise = Promise
+mongoose.Promise = Promise;
 
-mongoose.connect(config.get('database:host'), {useMongoClient: true})
-    .then(() => { console.log('MongoDB server started') })
-    .catch(err => err)
+mongoose
+  .connect(
+    config.get('database:host'),
+    { useMongoClient: true }
+  )
+  .then(() => {
+    console.log('MongoDB server started');
+  })
+  .catch(err => err);
 
-module.exports = mongoose
+module.exports = mongoose;

@@ -1,9 +1,8 @@
-const fs = require('fs')
-const nconf = require('nconf')
+const nconf = require('nconf');
 
 nconf
-    .argv()
-    .env()
-    .file({ file: __dirname + "/config.json" })
+  .argv()
+  .env()
+  .file({ file: `${__dirname} + /config.json` });
 
-module.exports = nconf
+module.exports = nconf;
