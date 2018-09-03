@@ -8,18 +8,23 @@ import {} from './formTask.css';
 export const FormTask = assignPropTypes({
   createNewTask: PropTypes.func,
   isActive: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
-})(() => (
+})(({
+  addTask,
+  createNewTask,
+  isActive,
+  background,
+}) => (
   <form className="formTask">
     <textarea
       className="formTask__field"
-      style={{ background: this.props.background }}
+      style={{ background }}
       placeholder="enter your task here..."
     />
     <SelectColor
-      createNewTask={this.props.createNewTask}
-      isActive={this.props.isActive}
+      createNewTask={createNewTask}
+      isActive={isActive}
     />
-    <button className="formTask__button" onClick={this.props.addTask}>
+    <button className="formTask__button" onClick={addTask}>
       add task
     </button>
   </form>

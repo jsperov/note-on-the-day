@@ -7,7 +7,7 @@ export default class Task extends React.Component {
   constructor() {
     super();
     this.state = {
-      color: null,
+      color: 'white',
       isActive: null,
       tasks: new LocalStorage().getStorage('tasks'),
     };
@@ -18,20 +18,18 @@ export default class Task extends React.Component {
 
     const taskField = event.target.parentNode.querySelector('.formTask__field');
 
+    console.log(taskField.value);
+
     if (!taskField.value) return;
 
-    this.state.tasks.push({
-      description: taskField.value,
-      backgroundTask: this.state.color,
-    });
-
-    localStorage.setItem('tasks', JSON.stringify(this.state.tasks));
-
-    this.setState({
-      tasks: this.state.tasks,
-    });
-
-    taskField.value = '';
+    this.setState(state => ({
+      tasks: [
+        ...state.tasks,
+        {
+          description: taskField.value,
+          backgroundTask: this.state.color,
+        }],
+    }), localStorage.setItem('tasks', JSON.stringify(this.state.tasks)));
   };
 
   createNewTask = (color) => {
