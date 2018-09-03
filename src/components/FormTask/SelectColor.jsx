@@ -11,7 +11,7 @@ export class SelectColor extends React.PureComponent {
           <ColorToggle
             color={color}
             createNewTask={this.props.createNewTask}
-            isActive={this.props.isActive}
+            active={this.props.active}
             key={index}
           />
         ))}

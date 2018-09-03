@@ -8,7 +8,7 @@ export default class Task extends React.Component {
     super();
     this.state = {
       color: 'white',
-      isActive: null,
+      activeColor: null,
       tasks: new LocalStorage().getStorage('tasks'),
     };
   }
@@ -16,9 +16,8 @@ export default class Task extends React.Component {
   addTask = (event) => {
     event.preventDefault();
 
+    const { tasks } = this.state;
     const taskField = event.target.parentNode.querySelector('.formTask__field');
-
-    console.log(taskField.value);
 
     if (!taskField.value) return;
 
@@ -29,11 +28,17 @@ export default class Task extends React.Component {
           description: taskField.value,
           backgroundTask: this.state.color,
         }],
-    }), localStorage.setItem('tasks', JSON.stringify(this.state.tasks)));
+    }), localStorage.setItem('tasks', JSON.stringify(tasks)));
   };
 
+  clearForm = () => {
+    this.setState({
+      value: '',
+    });
+  }
+
   createNewTask = (color) => {
-    this.setState({ color, isActive: color });
+    this.setState({ color, activeColor: color });
   };
 
   render() {
@@ -42,7 +47,7 @@ export default class Task extends React.Component {
         <FormTask
           background={this.state.color}
           createNewTask={this.createNewTask}
-          isActive={this.state.isActive}
+          active={this.state.activeColor}
           addTask={this.addTask}
         />
         <ViewTasks tasks={this.state.tasks} />
