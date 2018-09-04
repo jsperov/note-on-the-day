@@ -5,6 +5,7 @@
   "dependencies": {
     "antd": "^3.7.0",
     "assign-prop-types": "^1.2.3",
+    "axios": "^0.18.0",
     "body-parser": "^1.18.2",
     "classnames": "^2.2.6",
     "express": "^4.16.2",

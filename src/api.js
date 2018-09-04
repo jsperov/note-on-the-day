@@ -1,8 +1,8 @@
-const PORT = 3000;
-const HOST = "http://89.223.92.3";
+import axios from 'axios';
 
-const API = {
-    getData: `${HOST}:${PORT}/test`,
-}
+const PORT = 80;
+const HOST = 'http://89.223.92.3';
 
-export { API };
+export const API = {
+  getData: () => axios(`${HOST}:${PORT}`).then(res => console.log(res)),
+};

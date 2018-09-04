@@ -3,6 +3,8 @@ import { LocalStorage } from '../../db';
 import { FormTask } from '../FormTask/';
 import { ViewTasks } from '../ViewTasks/';
 
+import { API } from '../../api';
+
 export default class Task extends React.Component {
   constructor() {
     super();
@@ -15,6 +17,8 @@ export default class Task extends React.Component {
 
   addTask = (event) => {
     event.preventDefault();
+
+    API.getData();
 
     const { tasks } = this.state;
     const taskField = event.target.parentNode.querySelector('.formTask__field');
