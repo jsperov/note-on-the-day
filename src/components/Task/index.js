@@ -3,20 +3,17 @@ import { LocalStorage } from '../../db';
 import { FormTask } from '../FormTask/';
 import { ViewTasks } from '../ViewTasks/';
 
-export default class Task extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      color: 'white',
-      activeColor: null,
-      tasks: new LocalStorage().getStorage('tasks'),
-    };
+class Task extends React.Component {
+  state = {
+    color: 'white',
+    activeColor: null,
+    tasks: new LocalStorage().getStorage('tasks'),
   }
 
   addTask = (event) => {
     event.preventDefault();
 
-    const { tasks } = this.state;
+    const { color } = this.state;
     const taskField = event.target.parentNode.querySelector('.formTask__field');
 
     if (!taskField.value) return;
@@ -26,9 +23,9 @@ export default class Task extends React.Component {
         ...state.tasks,
         {
           description: taskField.value,
-          backgroundTask: this.state.color,
+          backgroundTask: color,
         }],
-    }), localStorage.setItem('tasks', JSON.stringify(tasks)));
+    }), localStorage.setItem('tasks', JSON.stringify(this.state.tasks)));
   };
 
   clearForm = () => {
@@ -57,3 +54,5 @@ export default class Task extends React.Component {
     );
   }
 }
+
+export { Task };
