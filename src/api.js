@@ -1,8 +1,10 @@
-import axios from 'axios';
-
-const PORT = 80;
+const PORT = 8050;
 const HOST = 'http://89.223.92.3';
 
 export const API = {
-  getData: () => axios(`${HOST}:${PORT}`).then(res => console.log(res)),
+  BASE: `${HOST}:${PORT}/api`,
+  TASK: {
+    BASE: () => `${API.BASE}/tasks`,
+    GET_TASK: ({ id }) => `${API.BASE}/task:${id}`,
+  },
 };
