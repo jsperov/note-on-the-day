@@ -3,11 +3,13 @@ import { LocalStorage } from '../../db';
 import { FormTask } from '../FormTask/';
 import { ViewTasks } from '../ViewTasks/';
 
+const Storage = new LocalStorage();
+
 class Task extends React.Component {
   state = {
     color: 'white',
     activeColor: null,
-    tasks: new LocalStorage().getStorage('tasks'),
+    tasks: Storage.getStorage('tasks'),
   }
 
   addTask = (event) => {
@@ -25,7 +27,7 @@ class Task extends React.Component {
           description: taskField.value,
           backgroundTask: color,
         }],
-    }), localStorage.setItem('tasks', JSON.stringify(this.state.tasks)));
+    }), () => Storage.recordStorage('tasks', this.state.tasks));
   };
 
   clearForm = () => {

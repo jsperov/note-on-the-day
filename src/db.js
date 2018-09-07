@@ -1,6 +1,6 @@
 export const LocalStorage = () => ({
-  recordStorage: (state) => {
-    localStorage.setItem('tasks', JSON.stringify(state));
+  recordStorage: (key, state) => {
+    localStorage.setItem(key, JSON.stringify(state));
   },
 
   getStorage: (key) => {
