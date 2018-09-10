@@ -30,12 +30,6 @@ class Task extends React.Component {
     }), () => Storage.recordStorage('tasks', this.state.tasks));
   };
 
-  clearForm = () => {
-    this.setState({
-      value: '',
-    });
-  }
-
   createNewTask = (event, color) => {
     event.preventDefault();
 
