@@ -8,6 +8,12 @@ const rules = {
     isValid: !isEmpty(value),
   }),
 
+  lengthControl: (value, minMax, direction) => ({
+    error: 'does not match the length',
+    value,
+    isValid: direction ? value.length > minMax : value.length < minMax,
+  }),
+
   email: value => ({
     error: 'not correct email',
     value,
