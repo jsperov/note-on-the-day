@@ -1,0 +1,8 @@
+- request:
+    url: '/api/tasks/'
+    method: GET
+  response:
+    status: 200
+    headers:
+      content-type: application/json
+    file: api/tasks/index.json

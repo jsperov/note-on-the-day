@@ -1,10 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from 'antd';
+import axios from 'axios';
 
 import 'antd/dist/antd.css';
 import './home.css';
 import Logo from './task.svg';
+
+axios.get('https://localhost:7443/api/tasks/')
+  .then(response => console.log(response))
+  .catch(error => console.log(error));
 
 export const Home = () => (
   <div id="introduction">

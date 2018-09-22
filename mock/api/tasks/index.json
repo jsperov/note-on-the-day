@@ -1,0 +1,19 @@
+{
+    "tasks": [
+        {
+            "id": 1,
+            "title": "My first a task",
+            "authorId": 3
+        },
+        {
+            "id": 2,
+            "title": "My second a task",
+            "authorId": 3
+        },
+        {
+            "id": 3,
+            "title": "My third a task",
+            "authorId": 3
+        }
+    ]
+}
